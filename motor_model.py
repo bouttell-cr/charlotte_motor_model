@@ -1,9 +1,6 @@
 import math as m
 
 def compute_motor_parameters(winding, torque_nm, speed_rad):
-    """
-    Compute motor phase voltage, electrical power, DC bus current, and efficiency for a BLDC motor.
-    """
     # Motor Constants (AKE80-8)
     R_phase = 0.870  # Ohms (Phase Resistance)
     #L_phase = 990e-6  # Henry (Phase Inductance) #Ignored
@@ -33,15 +30,6 @@ def compute_motor_parameters(winding, torque_nm, speed_rad):
         V_phase_line_RMS = V_phase_peak/m.sqrt(2)
         I_phase_line_RMS = m.sqrt(3)/m.sqrt(2)*I_phase_peak
         P_RMS = m.sqrt(3)*V_phase_line_RMS * I_phase_line_RMS
-    
-    # return {
-    #     "V_phase_peak": V_phase_peak,
-    #     "I_phase_peak": I_phase_peak,
-    #     "V_phase_line_RMS": V_phase_line_RMS,
-    #     "I_phase_line_RMS":I_phase_line_RMS,
-    #     "P_RMS":P_RMS
-
-    # }
     
     return [
         V_phase_peak,
